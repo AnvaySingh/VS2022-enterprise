@@ -1,0 +1,22 @@
+---
+- name : Install VS
+  collections:
+      - chocolatey.chocolatey
+  hosts: all
+  tasks:
+  - name: install vs2022 enterprise
+    win_chocolatey:
+      name: visualstudio2022enterprise
+      params:
+        --add Microsoft.VisualStudio.Workload.CoreEditor
+        --add Microsoft.Net.Component.4.8.SDK
+        --add Microsoft.Net.Component.4.8.TargetingPack
+        --add Microsoft.VisualStudio.Workload.Data
+        --add Microsoft.VisualStudio.Workload.ManagedDesktop
+        --add Microsoft.VisualStudio.Workload.NetCoreTools
+        --add Microsoft.VisualStudio.Workload.NetWeb
+        --add Microsoft.VisualStudio.Workload.Node
+        --add Microsoft.VisualStudio.Component.Workflow
+        --add Microsoft.VisualStudio.Component.SQL.SSDT
+        --add Microsoft.VisualStudio.Workload.Python
+      force: yes
